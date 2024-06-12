@@ -17,7 +17,7 @@ export default async function generateSummary() {
         model: "gpt-3.5-turbo-16k",
         messages: [
           { role: "system", content: "You are a helpful assistant." },
-          { role: "user", content: `Please summarize the following text as briefly as possible: ${text}` }
+          { role: "user", content: `Please summarize the following text as briefly as possible: ${text}. If the above text seems like a business conversation, make the first word of your response '#BUSINESS#: ', if it is a casual conversation, the first word of your response should be '#CASUAL#: '`}
         ],
       }),
     });

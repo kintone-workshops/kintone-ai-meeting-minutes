@@ -2,6 +2,13 @@
 
 // A function to update our Kintone record all in one go. We'll be calling the uploadFile function above in here.
 export default async function updateKintone(summaryText) {
+  let type;
+  if (summaryText.includes('#BUSINESS#')) {
+    type = 'Business';
+  } else if (summaryText.includes('#CASUAL#')) {
+    type = 'Casual';
+  };
+  
   const putBody = {
     app: import.meta.env.VITE_KINTONE_APPID,
     id: kintone.app.record.getId(),
@@ -9,6 +16,9 @@ export default async function updateKintone(summaryText) {
       summary: {
         value: summaryText
       },
+      type: {
+        value: type
+      }
     }
   };
   const response = await kintone.api(kintone.api.url('/k/v1/record', true), 'PUT', putBody);
