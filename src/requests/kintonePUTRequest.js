@@ -1,10 +1,10 @@
 // kintonePUTRequest.js
 
 // A function to update our Kintone record all in one go. We'll be calling the uploadFile function above in here.
-export default async function updateKintone(recordID, summaryText) {
+export default async function updateKintone(summaryText) {
   const putBody = {
     app: import.meta.env.VITE_KINTONE_APPID,
-    id: recordID,
+    id: kintone.app.record.getId(),
     record: {
       summary: {
         value: summaryText

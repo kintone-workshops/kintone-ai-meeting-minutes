@@ -5,14 +5,12 @@
   "main": "vite.config.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --emptyOutDir",
-    "upload": "env-cmd --verbose kintone-customize-uploader customize-manifest.json"
+    "build": "vite build --emptyOutDir"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.4.5",
-    "env-cmd": "^10.1.0",
     "vite": "^5.2.13"
   }
 }
