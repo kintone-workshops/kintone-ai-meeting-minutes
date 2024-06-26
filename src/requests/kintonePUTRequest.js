@@ -1,6 +1,4 @@
 // kintonePUTRequest.js
-
-// A function to update our Kintone record all in one go. We'll be calling the uploadFile function above in here.
 export default async function updateKintone(summaryText) {
   let type;
   if (summaryText.includes('#BUSINESS#')) {

@@ -1,5 +1,7 @@
 import generateSummary from "./requests/aiSummaryRequest";
+import generateSummaryPortal from "./requests/aiSummaryRequestPortal";
 import updateKintone from "./requests/kintonePUTRequest";
+import addRecord from "./requests/kintonePOSTRequest";
 
 const spinner = new Kuc.Spinner({
   text: 'now loading...',
@@ -44,17 +46,41 @@ kintone.events.on('app.record.detail.show', event => {
 
 const onGenerateButtonClicked = async () => {
   spinner.open();
+  if (kintone.app.getId() == '110') {
+    handleBasicAppRequest()
+  } else {
+    handlePortalAppRequest()
+  }
+}
+
+const handleBasicAppRequest = async () => {
   let summary = await generateSummary()
   if (summary) {
     let updateResponse = await updateKintone(summary)
-    console.log(updateResponse)
     if (updateResponse) {
       success.open()
       spinner.close()
     } else {
       error.open()
       spinner.close()
-      console.log(updateResponse)
+    }
+  } else {
+    error.open()
+    spinner.close()
+    console.log(summary)
+  }
+}
+
+const handlePortalAppRequest = async () => {
+  let summary = await generateSummaryPortal()
+  if (summary) {
+    let updateResponse = await addRecord(summary)
+    if (updateResponse) {
+      success.open()
+      spinner.close()
+    } else {
+      error.open()
+      spinner.close()
     }
   } else {
     error.open()

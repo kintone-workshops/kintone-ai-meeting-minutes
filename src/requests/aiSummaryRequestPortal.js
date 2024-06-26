@@ -1,9 +1,9 @@
 const domain = import.meta.env.VITE_KINTONE_BASE_URL; // our URL
 const openAIToken = import.meta.env.VITE_OPEN_AI_TOKEN; // Our Open AI API token
-const kintoneToken = import.meta.env.VITE_KINTONE_FIRST_TOKEN; // Kintone API Token
-const appID = import.meta.env.VITE_KINTONE_APPID; // Kintone App ID
+const kintoneToken = import.meta.env.VITE_KINTONE_PORTAL_TOKEN; // Kintone API Token
+const appID = import.meta.env.VITE_KINTONE_PORTAL_APPID; // Kintone App ID
 
-export default async function generateSummary() {
+export default async function generateSummaryPortal() {
   let transcriptFileKey = await fetchFileKeyFromKintone();
   let text = await getAttachment(transcriptFileKey);
   try {
