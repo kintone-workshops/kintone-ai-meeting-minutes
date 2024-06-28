@@ -2,6 +2,7 @@ import generateSummary from "./requests/aiSummaryRequest";
 import generateSummaryPortal from "./requests/aiSummaryRequestPortal";
 import updateKintone from "./requests/kintonePUTRequest";
 import addRecord from "./requests/kintonePOSTRequest";
+const appID = import.meta.env.VITE_KINTONE_APPID; // Kintone App ID
 
 const spinner = new Kuc.Spinner({
   text: 'now loading...',
@@ -46,7 +47,7 @@ kintone.events.on('app.record.detail.show', event => {
 
 const onGenerateButtonClicked = async () => {
   spinner.open();
-  if (kintone.app.getId() == '110') {
+  if (kintone.app.getId() == appID) {
     handleBasicAppRequest()
   } else {
     handlePortalAppRequest()
