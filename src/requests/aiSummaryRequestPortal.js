@@ -1,4 +1,4 @@
-const domain = import.meta.env.VITE_KINTONE_BASE_URL; // our URL
+const domain = import.meta.env.VITE_KINTONE_SUBDOMAIN; // our URL
 const openAIToken = import.meta.env.VITE_OPEN_AI_TOKEN; // Our Open AI API token
 const kintoneToken = import.meta.env.VITE_KINTONE_PORTAL_TOKEN; // Kintone API Token
 const appID = import.meta.env.VITE_KINTONE_PORTAL_APPID; // Kintone App ID
@@ -37,7 +37,7 @@ export default async function generateSummaryPortal() {
 }
 
 const getAttachment = async (fileKey) => {
-  const url = `${domain}/k/v1/file.json?fileKey=${fileKey}`;
+  const url = `https://${domain}.kintone.com/k/v1/file.json?fileKey=${fileKey}`;
   try {
     const response = await fetch(url, {
       method: 'GET',
