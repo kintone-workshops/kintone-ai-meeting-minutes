@@ -8,7 +8,7 @@ export default async function updateKintone(summaryText) {
   };
   
   const putBody = {
-    app: import.meta.env.VITE_KINTONE_APPID,
+    app: import.meta.env.VITE_KINTONE_PART_ONE_APPID,
     id: kintone.app.record.getId(),
     record: {
       summary: {
