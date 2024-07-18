@@ -2,6 +2,8 @@
 
 A demo showing a basic integration with OpenAI, and then a more interesting AI based design pattern.
 
+![finished_part_one_app.gif](./images/finished_part_one_app.gif)
+
 This project consists of two parts:
 
 ## Part One
@@ -93,6 +95,8 @@ Add the `KintoneCustomization.umd.js` file to your App's JavaScript and CSS Cust
 Make sure to **save** and **update** the App after selecting a file.
 
 Navigate to a record, and if a blue `Generate Meeting Minutes` button is displayed, the customization is ready to use.
+
+![finished_part_one_app.gif](./images/finished_part_one_app.gif)
 
 ## Problems with this design pattern
 
