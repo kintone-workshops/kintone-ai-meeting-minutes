@@ -2,7 +2,7 @@ import generateSummary from "./requests/aiSummaryRequest";
 import generateSummaryPortal from "./requests/aiSummaryRequestPortal";
 import updateKintone from "./requests/kintonePUTRequest";
 import addRecord from "./requests/kintonePOSTRequest";
-const appID = import.meta.env.VITE_KINTONE_APPID; // Kintone App ID
+const appID = import.meta.env.VITE_KINTONE_PART_ONE_APPID;
 
 const spinner = new Kuc.Spinner({
   text: 'now loading...',
